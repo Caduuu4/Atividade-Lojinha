@@ -1,41 +1,98 @@
-# Atividade Lojinha
+# 🛒 Atividade Lojinha
 
-Projeto desenvolvido para a disciplina de Arquitetura de Software, com o objetivo de simular o funcionamento de uma lojinha online em uma arquitetura cliente-servidor monolítica.
+Projeto desenvolvido para a disciplina de Arquitetura de Software, com o objetivo de simular o funcionamento de uma lojinha online utilizando uma arquitetura cliente-servidor monolítica.
 
-## Estrutura do projeto
+---
+
+## 📌 Objetivo
+
+O sistema simula as principais operações de uma loja online, incluindo:
+
+- identificação de clientes;
+- listagem de produtos;
+- criação de pedidos;
+- processamento de pagamentos;
+- comunicação com um sistema externo de pagamento.
+
+---
+
+## 🏗️ Estrutura do projeto
 
 O projeto está organizado na pasta `src`, dividida da seguinte forma:
 
 - `src/model`  
-  Contém as classes de domínio do sistema, como cliente, produto, pedido, item do pedido e pagamento.
+  Contém as classes de domínio do sistema, como:
+  - Cliente  
+  - Produto  
+  - Pedido  
+  - ItemPedido  
+  - Pagamento  
 
 - `src/repository`  
-  Contém os repositórios responsáveis por disponibilizar dados do sistema, como clientes e produtos cadastrados.
+  Responsável por simular o armazenamento e disponibilização de dados, como clientes e produtos cadastrados.
 
 - `src/service`  
-  Contém as regras de negócio e os serviços principais do sistema, incluindo a lógica da loja e a comunicação com o sistema externo de pagamento.
+  Contém as regras de negócio do sistema, incluindo:
+  - lógica da loja  
+  - criação de pedidos  
+  - integração com o sistema de pagamento  
 
 - `src/Main.java`  
   Classe principal responsável por executar a simulação do sistema.
 
-## Principais decisões arquiteturais
+---
 
-O sistema foi desenvolvido seguindo uma arquitetura monolítica no modelo cliente-servidor, conforme solicitado na atividade. Todas as responsabilidades do backend estão centralizadas em uma única aplicação.
+## ⚙️ Principais decisões arquiteturais
 
-As principais decisões arquiteturais foram:
+O sistema foi desenvolvido seguindo uma arquitetura **cliente-servidor monolítica**, onde todas as responsabilidades estão centralizadas em uma única aplicação backend.
 
-- separação do código em camadas simples (`model`, `repository` e `service`) para melhorar a organização;
-- uso de classes de modelo para representar as entidades principais do sistema;
-- uso de repositórios estáticos para simular dados previamente cadastrados;
-- centralização das regras de negócio na classe de serviço principal da loja;
-- simulação do processamento de pagamento por meio de um serviço externo específico.
+As principais decisões foram:
 
-## Aplicação do padrão Singleton
+- separação em camadas (`model`, `repository` e `service`) para melhor organização;
+- uso de classes de modelo para representar as entidades do sistema;
+- utilização de repositórios estáticos para simular dados persistidos;
+- centralização das regras de negócio na camada de serviço;
+- simulação da comunicação com um sistema externo de pagamento.
 
-O padrão de projeto Singleton foi aplicado na classe responsável pela comunicação com o sistema externo de pagamento.
+---
+
+## 🔁 Diagrama de Atividades
+
+O diagrama abaixo representa o fluxo principal de funcionamento do sistema, desde a seleção de produtos até o processamento do pagamento:
+
+![Diagrama de Atividades](docs/deratt.png)
+
+---
+
+## 🧩 Diagrama Entidade-Relacionamento (DER)
+
+O DER representa a estrutura de dados do sistema e os relacionamentos entre as entidades:
+
+![DER](docs/der.png)
+
+---
+
+## 🧠 Aplicação do padrão Singleton
+
+O padrão de projeto **Singleton** foi aplicado na classe responsável pela comunicação com o sistema externo de pagamento.
 
 A classe `PagamentoExternoService` foi implementada como Singleton para garantir que exista apenas uma única instância desse serviço durante toda a execução do programa.
 
-Essa decisão foi adotada porque o sistema externo de pagamento representa um recurso compartilhado, e faz sentido que a aplicação utilize apenas uma conexão lógica centralizada para esse serviço.
+### ✔️ Justificativa
 
-Com isso, o projeto evita a criação desnecessária de múltiplas instâncias para o mesmo componente, garantindo maior controle e consistência no processamento dos pagamentos.
+Essa decisão foi adotada porque:
+
+- o sistema de pagamento representa um recurso compartilhado;
+- não faz sentido criar múltiplas conexões para o mesmo serviço;
+- garante maior controle e consistência no processamento dos pagamentos;
+- evita consumo desnecessário de recursos.
+
+---
+
+## 📚 Tecnologias utilizadas
+
+- Java
+- Paradigma Orientado a Objetos
+- Padrão de Projeto Singleton
+- Modelagem UML (Diagrama de Atividades e DER)
+
