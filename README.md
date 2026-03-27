@@ -56,19 +56,12 @@ As principais decisões foram:
 
 ---
 
-## 🔁 Diagrama de Atividades
+## 🔁 Diagramas do sistema
 
-O diagrama abaixo representa o fluxo principal de funcionamento do sistema, desde a seleção de produtos até o processamento do pagamento:
+Os diagramas desenvolvidos para o projeto estão disponíveis na pasta `docs` do repositório:
 
-![Diagrama de Atividades](docs/deratt.png)
-
----
-
-## 🧩 Diagrama Entidade-Relacionamento (DER)
-
-O DER representa a estrutura de dados do sistema e os relacionamentos entre as entidades:
-
-![DER](docs/der.png)
+- Diagrama de Atividades  
+- Diagrama Entidade-Relacionamento (DER)
 
 ---
 
@@ -92,7 +85,7 @@ Essa decisão foi adotada porque:
 ## 📚 Tecnologias utilizadas
 
 - Java
-- Paradigma Orientado a Objetos
+- Programação Orientada a Objetos (POO)
 - Padrão de Projeto Singleton
 - Modelagem UML (Diagrama de Atividades e DER)
 
